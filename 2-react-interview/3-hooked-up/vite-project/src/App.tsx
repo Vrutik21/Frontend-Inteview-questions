@@ -1,32 +1,15 @@
-import { useState } from "react";
-import { useCustomEffect } from "./hooks/use-custom-effect";
+import "./App.css";
+import UseEffectHook from "./components/use-effect-hook";
+import UseRefHook from "./components/use-ref-hook";
+import UseStateHook from "./components/use-state-hook";
 
 function App() {
-  const [count, setCount] = useState(0);
-  // const [count1, setCount1] = useState(0);
-
-  useCustomEffect(() => {
-    console.log("Effect triggered : ", count);
-    return () => {
-      console.log("clean up");
-    };
-  }, [count]);
-
-  console.log("rendered");
-
-  const increment = () => {
-    setCount(count + 1);
-  };
-
-  const decrement = () => {
-    setCount(count - 1);
-  };
-
   return (
     <div>
-      <h1>Counter : {count}</h1>
-      <button onClick={increment}>Increment</button>
-      <button onClick={decrement}>Decrement</button>
+      <h2>Hooks Interview Questions in React</h2>
+      <UseStateHook />
+      <UseEffectHook />
+      <UseRefHook />
     </div>
   );
 }
